@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remiellene Caluza — Portfolio</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+:root {
+    --primary: #4a3f6b;
+    --accent: #7c68ed;
+    --light: #f8f7fc;
+    --dark: #2d2a3e;
+    --gray: #88839c;
+    --border: #e5e2f0;
+}
+body {
+    background: #fff;
+    color: var(--dark);
+    line-height: 1.7;
+}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0;
+}
+.logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+.nav-links a:hover {
+    color: var(--accent);
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+#hero {
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+.hero-text h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+.hero-text h1 span {
+    color: var(--accent);
+}
+.hero-text .subtitle {
+    font-size: 1.15rem;
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+}
+.hero-text p {
+    color: var(--gray);
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+.btn-primary:hover {
+    background: var(--primary);
+}
+.btn-outline {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-outline:hover {
+    background: var(--accent);
+    color: #fff;
+}
+.hero-image {
+    flex-shrink: 0;
+}
+.hero-image img {
+    width: 280px;
+    height: 280px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 20px 60px rgba(124, 104, 237, 0.15);
+    border: 4px solid #fff;
+}
+
+/* Section Styles */
+section {
+    padding: 5rem 0;
+}
+.section-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-heading h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+.section-heading p {
+    color: var(--gray);
+    max-width: 500px;
+    margin: 0 auto;
+}
+.divider {
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    margin: 0.8rem auto 0;
+}
+
+/* About */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+}
+.about-card {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    transition: transform 0.3s ease;
+}
+.about-card:hover {
+    transform: translateY(-5px);
+}
+.about-card h3 {
+    color: var(--primary);
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+}
+.about-card p {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.2rem;
+}
+.skill-item {
+    text-align: center;
+    padding: 1.8rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.skill-item:hover {
+    border-color: var(--accent);
+    background: var(--light);
+}
+.skill-item h4 {
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+.skill-item p {
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+.project-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(74, 63, 107, 0.08);
+}
+.project-content {
+    padding: 1.6rem;
+}
+.project-content h3 {
+    color: var(--primary);
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+}
+.project-content p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+.project-tag {
+    display: inline-block;
+    background: var(--light);
+    color: var(--accent);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* GitHub Repos */
+.repos-section {
+    margin-top: 4rem;
+}
+.repo-item {
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+}
+.repo-item:hover {
+    border-color: var(--accent);
+}
+.repo-item a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.repo-item p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+/* Contact */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+}
+.contact-info div {
+    margin-bottom: 1.5rem;
+}
+.contact-info h4 {
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+.contact-info p, .contact-info a {
+    color: var(--gray);
+    text-decoration: none;
+}
+.contact-info a:hover {
+    color: var(--accent);
+}
+form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+form input, form textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    transition: border-color 0.3s ease;
+}
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+form button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+form button:hover {
+    background: var(--primary);
+}
+#form-status {
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    background: var(--light);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* Back to Top */
+#back-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    display: none;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 12px rgba(124, 104, 237, 0.25);
+}
+#back-top:hover {
+    background: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">RC</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="hero" class="container">
+    <div class="hero-text">
+        <h1>Hello, I'm <span>Remiellene</span></h1>
+        <p class="subtitle">IT Student • Network Specialist • Developer</p>
+        <p>I build clean, functional websites and reliable network solutions. Dedicated to continuous learning and creating with purpose.</p>
+        <div class="hero-buttons">
+            <a href="#projects" class="btn-primary">View My Work</a>
+            <a href="#contact" class="btn-outline">Get In Touch</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="img.jpg" alt="Remiellene R. Caluza">
+    </div>
+</section>
+
+<section id="about" style="background: var(--light);">
+    <div class="container">
+        <div class="section-heading">
+            <h2>About Me</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>🎓 Education</h3>
+                <p>Nueva Vizcaya State University<br>Bachelor of Science in Information Technology</p>
+            </div>
+            <div class="about-card">
+                <h3>📖 Background</h3>
+                <p>A focused IT student passionate about networking and web development. I value clean design, logical solutions, and lifelong learning.</p>
+            </div>
+            <div class="about-card">
+                <h3>🎯 Objectives</h3>
+                <p>To design, implement, and maintain secure computer networks while building functional digital solutions that solve real problems.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="container">
+    <div class="section-heading">
+        <h2>Skills & Expertise</h2>
+        <div class="divider"></div>
+    </div>
+    <div class="skills-grid">
+        <div class="skill-item">
+            <h4>HTML5</h4>
+            <p>Markup & Structure</p>
+        </div>
+        <div class="skill-item">
+            <h4>CSS3</h4>
+            <p>Design & Layout</p>
+        </div>
+        <div class="skill-item">
+            <h4>JavaScript</h4>
+            <p>Interactivity</p>
+        </div>
+        <div class="skill-item">
+            <h4>Java</h4>
+            <p>OOP & Logic</p>
+        </div>
+        <div class="skill-item">
+            <h4>Networking</h4>
+            <p>Design & Security</p>
+        </div>
+        <div class="skill-item">
+            <h4>Git / GitHub</h4>
+            <p>Version Control</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="container">
+    <div class="section-heading">
+        <h2>My Projects</h2>
+        <div class="divider"></div>
+    </div>
+    <div id="projects-grid" class="projects-grid"></div>
+
+    <div class="repos-section">
+        <div class="section-heading">
+            <h2>GitHub Repositories</h2>
+            <div class="divider"></div>
+        </div>
+        <div id="github-repos"></div>
+    </div>
+</section>
+
+<section id="contact" style="background: var(--light);">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Get In Touch</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div>
+                    <h4>Email</h4>
+                    <a href="mailto:remiellenecaluza182@gmail.com">remiellenecaluza182@gmail.com</a>
+                </div>
+                <div>
+                    <h4>GitHub</h4>
+                    <a href="https://github.com/remrcaluza2a" target="_blank">github.com/remrcaluza2a</a>
+                </div>
+                <div>
+                    <h4>Location</h4>
+                    <p>Tuguegarao City, Philippines</p>
+                </div>
+            </div>
+            <form id="contact-form">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Your Name" required>
+                
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="your.email@example.com" required>
+                
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
+                
+                <button type="submit">Send Message</button>
+                <p id="form-status"></p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Remiellene R. Caluza. All rights reserved.</p>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const projects = [
+    { title: "Personal Portfolio", description: "Professional portfolio website showcasing skills, projects, and contact information.", tags: ["HTML", "CSS", "JavaScript"] },
+    { title: "Calculator", description: "Functional calculator with basic arithmetic operations and clean interface.", tags: ["HTML", "JavaScript"] },
+    { title: "Digital Clock", description: "Real-time digital clock displaying current time and date.", tags: ["HTML", "CSS", "JavaScript"] },
+    { title: "Floppy Bird", description: "Interactive browser game demonstrating JavaScript logic and event handling.", tags: ["HTML", "JavaScript"] }
+];
+
+function renderProjects() {
+    const container = document.getElementById('projects-grid');
+    projects.forEach(p => {
+        const tags = p.tags.map(t => `<span class="project-tag">${t}</span>`).join('');
+        container.innerHTML += `
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>${p.title}</h3>
+                    <p>${p.description}</p>
+                    <div>${tags}</div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+async function loadGitHubRepos() {
+    const username = 'remrcaluza2a';
+    try {
+        const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=5`);
+        if (!res.ok) throw new Error();
+        const repos = await res.json();
+        const container = document.getElementById('github-repos');
+        repos.forEach(r => {
+            container.innerHTML += `
+                <div class="repo-item">
+                    <a href="${r.html_url}" target="_blank">📁 ${r.name}</a>
+                    <p>${r.language || 'Repository'}</p>
+                </div>
+            `;
+        });
+    } catch {
+        document.getElementById('github-repos').innerHTML = '<p style="text-align:center; color:var(--gray);">Unable to load repositories at this time.</p>';
+    }
+}
+
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const status = document.getElementById('form-status');
+
+    if (!name || !email || !message) {
+        status.textContent = 'Please fill in all fields.';
+        status.style.color = '#d32f2f';
+        return;
+    }
+    if (!email.includes('@')) {
+        status.textContent = 'Please enter a valid email address.';
+        status.style.color = '#d32f2f';
+        return;
+    }
+    status.textContent = 'Message sent successfully! Thank you.';
+    status.style.color = '#2e7d32';
+    form.reset();
+    setTimeout(() => status.textContent = '', 5000);
+});
+
+window.addEventListener('scroll', () => {
+    document.getElementById('back-top').style.display = window.scrollY > 400 ? 'block' : 'none';
+});
+
+renderProjects();
+loadGitHubRepos();
+</script>
+
+</body>
+</html>

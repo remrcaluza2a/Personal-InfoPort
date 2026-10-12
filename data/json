@@ -1,0 +1,46 @@
+{
+  "profile": {
+    "name": "Remiellene R. Caluza",
+    "title": "IT Student • Network Specialist • Developer",
+    "bio": "I build clean, functional websites and reliable network solutions. Dedicated to continuous learning and creating with purpose.",
+    "email": "remiellenecaluza182@gmail.com",
+    "github": "https://github.com/remrcaluza2a",
+    "location": "Tuguegarao City, Philippines",
+    "photo": "img.jpg"
+  },
+  "about": {
+    "education": "Nueva Vizcaya State University — Bachelor of Science in Information Technology",
+    "background": "A focused IT student passionate about networking and web development. I value clean design, logical solutions, and lifelong learning.",
+    "objectives": "To design, implement, and maintain secure computer networks while building functional digital solutions that solve real problems."
+  },
+  "skills": [
+    { "name": "HTML5", "description": "Markup & Structure" },
+    { "name": "CSS3", "description": "Design & Layout" },
+    { "name": "JavaScript", "description": "Interactivity" },
+    { "name": "Java", "description": "OOP & Logic" },
+    { "name": "Networking", "description": "Design & Security" },
+    { "name": "Git / GitHub", "description": "Version Control" }
+  ],
+  "projects": [
+    {
+      "title": "Personal Portfolio",
+      "description": "Professional portfolio website showcasing skills, projects, and contact information.",
+      "tags": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "title": "Calculator",
+      "description": "Functional calculator with basic arithmetic operations and clean interface.",
+      "tags": ["HTML", "JavaScript"]
+    },
+    {
+      "title": "Digital Clock",
+      "description": "Real-time digital clock displaying current time and date.",
+      "tags": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "title": "Floppy Bird",
+      "description": "Interactive browser game demonstrating JavaScript logic and event handling.",
+      "tags": ["HTML", "JavaScript"]
+    }
+  ]
+}

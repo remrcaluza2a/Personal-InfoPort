@@ -37,9 +37,6 @@
       "tags": ["HTML", "CSS", "JavaScript"]
     },
     {
-      "title": "Floppy Bird",
-      "description": "Interactive browser game demonstrating JavaScript logic and event handling.",
-      "tags": ["HTML", "JavaScript"]
-    }
+      
   ]
 }
